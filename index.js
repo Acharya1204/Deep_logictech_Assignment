@@ -1,5 +1,5 @@
 const http = require('http');
-const scrapper = require('./scrapper');
+const scrapper = require('./fetchedData');
 
 
 // Create an HTTP server
@@ -12,12 +12,12 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify(data));
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Not Found');
+    res.end('Page Not Found');
   }
 });
 
-const PORT = 3000;
+const PORT = 8080;
 
-server.listen(PORT, () 
+server.listen(PORT, () =>{ 
   console.log(`Server is running on port ${PORT}`);
 });
